@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  :root {
+    --background: 0 0% 96%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 89%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 89%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 273 87% 36%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 196 100% 36%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 89%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 273 87% 36%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 273 87% 36%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 88%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 88%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 88%;
+    --primary: 277 81% 51%;
+    --primary-foreground: 180 100% 50%;
+    --secondary: 180 100% 50%;
+    --secondary-foreground: 277 81% 51%;
+    --muted: 0 0% 7%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 277 81% 51%;
+    --accent-foreground: 180 100% 50%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 88%;
+    --border: 0 0% 7%;
+    --input: 0 0% 7%;
+    --ring: 277 81% 51%;
+  }
+
+  body {
+    @layer base {
+      * {
+        @apply border-border;
+      }
+
+      :root {
+        --background: 0 0% 96%;
+        --foreground: 0 0% 10%;
+        --card: 0 0% 89%;
+        --card-foreground: 0 0% 10%;
+        --popover: 0 0% 89%;
+        --popover-foreground: 0 0% 10%;
+        --primary: 273 87% 36%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 196 100% 36%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 0 0% 89%;
+        --muted-foreground: 0 0% 45%;
+        --accent: 273 87% 36%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 89%;
+        --input: 0 0% 89%;
+        --ring: 273 87% 36%;
+        --radius: 0.5rem;
+      }
+
+      .dark {
+        --background: 0 0% 5%;
+        --foreground: 0 0% 88%;
+        --card: 0 0% 7%;
+        --card-foreground: 0 0% 88%;
+        --popover: 0 0% 7%;
+        --popover-foreground: 0 0% 88%;
+        --primary: 277 81% 51%;
+        --primary-foreground: 180 100% 50%;
+        --secondary: 180 100% 50%;
+        --secondary-foreground: 277 81% 51%;
+        --muted: 0 0% 7%;
+        --muted-foreground: 0 0% 70%;
+        --accent: 277 81% 51%;
+        --accent-foreground: 180 100% 50%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 88%;
+        --border: 0 0% 7%;
+        --input: 0 0% 7%;
+        --ring: 277 81% 51%;
+      }
+
+      body {
+        @apply font-sans antialiased bg-background text-foreground;
+      }
+    }
+
+    @layer components {
+      .glow-button {
+        @apply relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium transition-all bg-primary rounded-md hover:bg-primary/90;
+      }
+
+      .glow-button:before {
+        @apply content-[''] absolute w-32 h-32 rotate-45 translate-x-12 -translate-y-2 bg-white/10 top-0 -left-20 transition-all duration-1000 ease-out -z-10;
+      }
+
+      .glow-button:hover:before {
+        @apply -translate-x-44;
+      }
+
+      .glow-button:after {
+        @apply content-[''] absolute -z-10 w-full h-full top-0 left-0 opacity-0 transition-opacity duration-100;
+        background: radial-gradient(circle, rgba(138, 43, 226, 0.6) 0%, rgba(0, 255, 255, 0.3) 100%);
+      }
+
+      .glow-button:hover:after {
+        @apply opacity-100;
+      }
+
+      .input-glow {
+        @apply transition-shadow duration-300;
+      }
+
+      .input-glow:focus {
+        @apply shadow-[0_0_10px_rgba(100_223_255_0.5)];
+      }
+
+      .profile-aura {
+        @apply absolute inset-0 rounded-full;
+        background: radial-gradient(circle, rgba(138, 43, 226, 0.6) 0%, rgba(0, 255, 255, 0.3) 100%);
+      }
+
+      .dark .profile-aura {
+        background: radial-gradient(circle, rgba(138, 43, 226, 0.6) 0%, rgba(0, 255, 255, 0.3) 100%);
+      }
+
+      .light .profile-aura {
+        background: radial-gradient(circle, rgba(106, 13, 173, 0.6) 0%, rgba(0, 140, 186, 0.3) 100%);
+      }
+
+      .dark-mode-toggle {
+        @apply relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium transition-all bg-secondary rounded-md hover:bg-secondary/90;
+      }
+
+      .dark-mode-toggle:before {
+        @apply content-[''] absolute w-32 h-32 rotate-45 translate-x-12 -translate-y-2 bg-white/10 top-0 -left-20 transition-all duration-1000 ease-out -z-10;
+      }
+
+      .dark-mode-toggle:hover:before {
+        @apply -translate-x-44;
+      }
+
+      .dark-mode-toggle:after {
+        @apply content-[''] absolute -z-10 w-full h-full top-0 left-0 opacity-0 transition-opacity duration-100;
+        background: radial-gradient(circle, rgba(138, 43, 226, 0.6) 0%, rgba(0, 255, 255, 0.3) 100%);
+      }
+
+      .dark-mode-toggle:hover:after {
+        @apply opacity-100;
+      }
+    }
+
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .glow-button {
+    @apply relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-medium transition-all bg-primary rounded-md hover:bg-primary/90;
+  }
+
+  .glow-button:before {
+    @apply content-[''] absolute w-32 h-32 rotate-45 translate-x-12 -translate-y-2 bg-white/10 top-0 -left-20 transition-all duration-1000 ease-out -z-10;
+  }
+
+  .glow-button:hover:before {
+    @apply -translate-x-44;
+  }
+
+  .glow-button:after {
+    @apply content-[''] absolute -z-10 w-full h-full top-0 left-0 opacity-0 transition-opacity duration-100;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.6) 0%, rgba(0, 255, 255, 0.3) 100%);
+  }
+
+  .glow-button:hover:after {
+    @apply opacity-100;
+  }
+
+  .input-glow {
+    @apply transition-shadow duration-300;
+  }
+
+  .input-glow:focus {
+    @apply shadow-[0_0_10px_rgba(100_223_255_0.5)];
+  }
+
+  .profile-aura {
+    @apply absolute inset-0 rounded-full;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.6) 0%, rgba(0, 255, 255, 0.3) 100%);
+  }
+
+  .dark .profile-aura {
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.6) 0%, rgba(0, 255, 255, 0.3) 100%);
+  }
+
+  .light .profile-aura {
+    background: radial-gradient(circle, rgba(106, 13, 173, 0.6) 0%, rgba(0, 140, 186, 0.3) 100%);
+  }
+}

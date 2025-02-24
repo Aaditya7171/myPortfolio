@@ -1,0 +1,26 @@
+.whoWeAre {
+    position: relative;
+    overflow: hidden;
+}
+
+.whoWeAre::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.2) 0%, rgba(0, 255, 255, 0.1) 100%);
+    filter: blur(50px);
+    z-index: -1;
+}
+
+.projectCard {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: transform 0.2s ease-out;
+}
+
+.projectCard:hover {
+    transform: perspective(1000px) rotateX(var(--rotateX)) rotateY(var(--rotateY));
+}
