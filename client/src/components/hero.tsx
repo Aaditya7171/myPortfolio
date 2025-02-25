@@ -21,7 +21,7 @@ export default function Hero() {
             <div className="flex gap-4 justify-center md:justify-start">
               <button
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                className="bg-primary text-z px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
               >
                 Contact Me
               </button>
