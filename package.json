@@ -4,6 +4,7 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
+    "dev": "vite",
     "start": "vite",
     "build": "vite build",
     "predeploy": "npm run build",
