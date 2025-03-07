@@ -1,0 +1,42 @@
+Aditya Vijay Tomar 
++91 7389192822 | risingaditya91@gmail.com| https://github.com/Aaditya7171 
+Summary 
+ 
+Aspiring computer Science student specializing in full-stack web development with JavaScript, Node.js, and modern frameworks utilizing AI tools to enhance efficiency and accuracy. Strong foundation in data structures and algorithms (100+ LeetCode/HackerRank problems solved, 3-star HackerRank badge). Actively advancing skills through certifications in full-stack development and DSA while contributing to collaborative coding projects. 
+Education 
+ 
+•	Bachelor of Technology in Computer Science Engineering (2021-2025) LNCTS, Indore, Madhya Pradesh | Current CGPA: 7.63  
+•	Senior Secondary (12th  Grade) (2020-2021) 
+Govt. CSA Higher Secondary School, Argat, Satna, Madhya Pradesh | Percentage: 88.8% | MP Board 
+•	Secondary(10th Grade)(2018-2019) 
+Govt. CSA Higher Secondary School, Argat, Satna, Madhya Pradesh | Percentage: 90% | MP Board 
+Technical Skills 
+ 
+•	Frontend: HTML5, CSS3, JavaScript (ES6), Bootstrap 5, jQuery, DOM Manipulation 
+•	Backend: Node.js, Express.js, REST APIs, EJS 
+•	Tools: Git, GitHub, Postman, Bash/CLI 
+•	Core Subjects : Data Structures and Algorithms, OOP, Compiler Design 
+•	Soft Skills: Problem Solving, Critical Thinking, Team Collaboration 
+Projects 
+ 
+Weather App | https://aaditya7171.github.io/Weather-Forecast/ 	 	 	 	 	Feb, 2025 
+•	Integrated OpenWeatherMap API with asynchronous JavaScript to display real-time weather data. 
+•	Improved load times by 20% through optimized API calls and Bootstrap 5 for responsive layouts. 
+Drum Kit | https://aaditya7171.github.io/Drum_Kit/ |  	 	 	 	 	              Oct,2024 
+•	Developed an interactive web application using HTML, CSS, and JavaScript that allows users to play drum sounds via keyboard inputs or mouse clicks. 
+•	Implemented event listeners and audio playback features to create a responsive and engaging user experience. 
+QuizzyTech | https://aaditya7171.github.io/QuizzyTech/ 	 	 	 	 	 	May, 2024 
+•	Developed a quiz platform using HTML, CSS, and JavaScript with scoring logic and progress-saving via local storage. 
+•	Integrated local storage to save user progress; achieved 90% code test coverage. Certifications  
+ 
+•	Full-Stack Web Development Bootcamp | Certificate URL 
+•	DSA Supreme 3.0 | Ongoing 
+• Flipkart Grid 6.0 | Certificate URL Cocurricular Activities 
+ 
+•	Earned 3-star badge in Problem Solving on HackerRank (Top 15% globally). 
+•	Regularly participate in coding contests to sharpen analytical skills. 
+•	Attended Python workshop held in college and learned basics of python and it’s libraries. Extracurricular Activities 
+ 
+•	Won internal Smart India Hackathon held in college and gained leadership and teamwork skills. 
+•	Won poster making compition held in college and created several posters for college.  
+•	Worked in MS Word and MS Powerpoint during the course. 
