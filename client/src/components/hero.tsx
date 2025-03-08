@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profileImage from "/attached_assets/uoAkbiKI_4x (1).jpg";
+import profileImage from "/attached_assets/dp.jpg";
 
 export default function Hero() {
   return (
@@ -36,7 +36,7 @@ export default function Hero() {
             <div className="relative w-48 h-48 md:w-80 md:h-80">
               <div className="absolute -inset-2 rounded-full border-4 border-primary/20 animate-pulse"></div>
               <img
-                src="/attached_assets/uoAkbiKI_4x (1).jpg"
+                src="attached_assets/dp.jpg"
                 alt="Profile"
                 className="relative w-full h-full object-cover rounded-full"
                 loading="eager"

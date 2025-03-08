@@ -5,17 +5,17 @@ const certificates = [
     {
         name: "Flipkart Grid 6.0",
         url: "https://drive.google.com/file/d/1OiBHCDWw1zKXzFEmXAKYZZAGl3exN7xb/view?usp=sharing",
-        image: "/certificates/Grid6.0.png"
+        image: "certificates/Grid6.0.png"
     },
     {
         name: "Full Stack Web Development",
         url: "https://drive.google.com/file/d/19Yj0aGdunDNpr01I8ihUztL6UxiTgC-S/view?usp=sharing",
-        image: "/certificates/WebDev.png"
+        image: "certificates/WebDev.png"
     },
     {
         name: "Tata Crucible Campus Quiz 2024",
         url: "https://drive.google.com/file/d/1qzrxQV8BkS9pdaXkRplbCsopkLKblxIu/view?usp=sharing",
-        image: "/certificates/Tata.png"
+        image: "certificates/Tata.png"
     }
 ];
 

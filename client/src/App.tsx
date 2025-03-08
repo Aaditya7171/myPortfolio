@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, Router } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -8,7 +8,10 @@ import Nav from "@/components/nav";
 import Footer from "@/components/footer";
 import Photography from "@/components/photography";
 
-function Router() {
+// Import hash location hook
+import { useHashLocation } from "wouter/use-hash-location";
+
+function RouterContent() {
   return (
     <Switch>
       <Route path="/" component={Home} />
@@ -23,7 +26,10 @@ function App() {
       <div className="min-h-screen bg-background flex flex-col">
         <Nav />
         <main className="flex-1">
-          <Router />
+          {/* Use hash-based routing */}
+          <Router hook={useHashLocation}>
+            <RouterContent />
+          </Router>
         </main>
         <Footer />
         <Toaster />

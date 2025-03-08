@@ -9,18 +9,18 @@ import {
 } from "@/components/ui/dialog";
 
 const photos = [
-    "/attached_assets/adobe_lightroom/Nature 1.jpg",
-    "/attached_assets/adobe_lightroom/Nature 2.jpg",
-    "/attached_assets/adobe_lightroom/Nature 3.jpg",
-    "/attached_assets/adobe_lightroom/Nature 4.jpg",
-    "/attached_assets/adobe_lightroom/Nature 5.jpg",
-    "/attached_assets/adobe_lightroom/Nature 6.jpg",
-    "/attached_assets/adobe_lightroom/Nature 7.jpg",
-    "/attached_assets/adobe_lightroom/Nature 8.jpg",
-    "/attached_assets/adobe_lightroom/Nature 9.jpg",
-    "/attached_assets/adobe_lightroom/Evening1.jpg",
-    "/attached_assets/adobe_lightroom/Evening2.jpg",
-    "/attached_assets/adobe_lightroom/Evening3.jpg"
+    "./attached_assets/adobe_lightroom/Nature1.jpg",
+    "./attached_assets/adobe_lightroom/Nature2.jpg",
+    "./attached_assets/adobe_lightroom/Nature3.jpg",
+    "./attached_assets/adobe_lightroom/Nature4.jpg",
+    "./attached_assets/adobe_lightroom/Nature5.jpg",
+    "./attached_assets/adobe_lightroom/Nature6.jpg",
+    "./attached_assets/adobe_lightroom/Nature7.jpg",
+    "./attached_assets/adobe_lightroom/Nature8.jpg",
+    "./attached_assets/adobe_lightroom/Nature9.jpg",
+    "./attached_assets/adobe_lightroom/Evening1.jpg",
+    "./attached_assets/adobe_lightroom/Evening2.jpg",
+    "./attached_assets/adobe_lightroom/Evening3.jpg"
 ];
 
 export default function Photography() {
