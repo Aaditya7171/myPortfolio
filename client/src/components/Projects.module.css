@@ -17,10 +17,33 @@
 
 .projectCard {
     transform-style: preserve-3d;
-    transform: perspective(1000px);
-    transition: transform 0.2s ease-out;
+    transition: all 0.3s ease-out;
 }
 
 .projectCard:hover {
-    transform: perspective(1000px) rotateX(var(--rotateX)) rotateY(var(--rotateY));
+    transform: translateY(-5px);
+}
+
+/* Custom scrollbar styles */
+:global(.custom-scrollbar) {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(138, 43, 226, 0.3) rgba(0, 0, 0, 0.1);
+}
+
+:global(.custom-scrollbar::-webkit-scrollbar) {
+    width: 6px;
+}
+
+:global(.custom-scrollbar::-webkit-scrollbar-track) {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+:global(.custom-scrollbar::-webkit-scrollbar-thumb) {
+    background: rgba(138, 43, 226, 0.3);
+    border-radius: 10px;
+}
+
+:global(.custom-scrollbar::-webkit-scrollbar-thumb:hover) {
+    background: rgba(138, 43, 226, 0.5);
 }
