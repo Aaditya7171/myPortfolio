@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profileImage from "/attached_assets/uoAkbiKI_4x (1).jpg";
+import profileImage from "/attached_assets/dp.jpg";
 
 export default function Hero() {
   return (
@@ -61,7 +61,7 @@ export default function Hero() {
               <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-purple-600 to-cyan-400 opacity-0 group-hover:opacity-30 blur-md transition-all duration-500 dark:group-hover:opacity-40"></div>
 
               <img
-                src="/attached_assets/uoAkbiKI_4x (1).jpg"
+                src="/attached_assets/dp.jpg"
                 alt="Profile"
                 className="relative w-full h-full object-cover rounded-full transition-transform duration-500 group-hover:scale-105 z-10"
                 loading="eager"

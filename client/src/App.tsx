@@ -11,7 +11,7 @@ import LoadingScreen from "@/components/loading-screen";
 import { useState, useEffect } from "react";
 
 // Import profile image
-import profileImage from "/attached_assets/uoAkbiKI_4x (1).jpg";
+import profileImage from "/attached_assets/dp.jpg";
 
 function Router() {
   return (
