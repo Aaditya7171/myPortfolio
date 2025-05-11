@@ -219,4 +219,31 @@
   .light .profile-aura {
     background: radial-gradient(circle, rgba(106, 13, 173, 0.6) 0%, rgba(0, 140, 186, 0.3) 100%);
   }
+
+  /* Mobile menu styling */
+  .mobile-menu-open {
+    @apply overflow-hidden;
+  }
+
+  /* Mobile menu button styling */
+  .mobile-menu-button {
+    @apply relative flex items-center justify-center p-2 rounded-full bg-gradient-to-r from-purple-600/40 to-purple-600/50 dark:from-purple-600/50 dark:to-purple-600/60 text-primary shadow-md;
+  }
+
+  .mobile-menu-button-open {
+    @apply bg-gradient-to-r from-purple-700/80 to-purple-800/90 dark:from-purple-700/90 dark:to-purple-800/100;
+  }
+
+  /* Mobile menu nav button styling */
+  .mobile-nav-button {
+    @apply relative w-full py-4 px-6 bg-[#121220] dark:bg-[#121220] text-white text-xl font-medium text-center rounded-md overflow-hidden;
+  }
+
+  .mobile-nav-button-aura {
+    @apply absolute -inset-1 bg-gradient-to-r from-purple-600/20 via-purple-500/20 to-purple-400/20 rounded-lg blur-sm opacity-30 group-hover:opacity-70 transition duration-300;
+  }
+
+  .mobile-nav-button-shine {
+    @apply absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-all duration-1000 ease-out;
+  }
 }

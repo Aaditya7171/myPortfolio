@@ -1,7 +1,83 @@
 import { motion } from "framer-motion";
-import profileImage from "/attached_assets/dp.jpg";
+import { useState, useEffect, useRef } from "react";
 
 export default function Hero() {
+  const [showAltImage, setShowAltImage] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const hasBeenClicked = useRef(false);
+  const [imageLoaded, setImageLoaded] = useState({
+    primary: false,
+    secondary: false
+  });
+
+  // Preload images
+  useEffect(() => {
+    const primaryImg = new Image();
+    primaryImg.src = "/attached_assets/dp.jpg";
+    primaryImg.onload = () => setImageLoaded(prev => ({ ...prev, primary: true }));
+
+    const secondaryImg = new Image();
+    secondaryImg.src = "/attached_assets/dp2.png";
+    secondaryImg.onload = () => setImageLoaded(prev => ({ ...prev, secondary: true }));
+  }, []);
+
+  // Log state changes for debugging
+  useEffect(() => {
+    console.log("Profile image:", showAltImage ? "dp2.png" : "dp.jpg");
+    console.log("Is hovering:", isHovering);
+    console.log("Has been clicked:", hasBeenClicked.current);
+    console.log("Images loaded:", imageLoaded);
+  }, [showAltImage, isHovering, imageLoaded]);
+
+  // Handle click on profile image with enhanced transition
+  const handleProfileClick = () => {
+    // Set clicked state immediately
+    hasBeenClicked.current = true;
+
+    // Toggle the image with a slight delay for better animation flow
+    setTimeout(() => {
+      setShowAltImage(prev => !prev);
+      console.log("Image clicked, toggling to:", !showAltImage);
+    }, 50);
+
+    // Keep click state active longer to maintain the toggled state
+    // Extended duration for smoother experience when hovering after click
+    setTimeout(() => {
+      hasBeenClicked.current = false;
+    }, 3000);
+  };
+
+  // Handle mouse enter with smoother transition
+  const handleMouseEnter = () => {
+    // Set hovering state immediately for aura effects
+    setIsHovering(true);
+
+    // Only change image if not in clicked state
+    if (!hasBeenClicked.current) {
+      // Small delay for more natural feel when hovering
+      setTimeout(() => {
+        setShowAltImage(true);
+        console.log("Mouse enter, showing dp2.png");
+      }, 30);
+    }
+  };
+
+  // Handle mouse leave with smoother transition
+  const handleMouseLeave = () => {
+    // Set hovering state immediately for aura effects
+    setIsHovering(false);
+
+    // Only change image if not in clicked state
+    if (!hasBeenClicked.current) {
+      // Small delay before changing image for smoother transition
+      setTimeout(() => {
+        setShowAltImage(false);
+        console.log("Mouse leave, showing dp.jpg");
+      }, 50);
+    } else {
+      console.log("Mouse leave but keeping current image due to click state");
+    }
+  };
   return (
     <section className="min-h-[calc(100vh-4rem)] flex items-center py-16 md:py-0">
       <div className="container mx-auto px-4">
@@ -50,23 +126,132 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             className="order-1 md:order-2 flex justify-center"
           >
-            <div className="relative w-48 h-48 md:w-80 md:h-80 group">
-              {/* Moderate purple gradient aura */}
-              <div className="absolute -inset-6 md:-inset-8 rounded-full bg-gradient-to-r from-purple-600/30 via-fuchsia-500/30 to-cyan-400/30 blur-lg dark:from-purple-600/50 dark:via-fuchsia-500/50 dark:to-cyan-400/50 opacity-0 dark:opacity-60 group-hover:opacity-70 transition-all duration-700"></div>
+            <motion.div
+              className="relative w-48 h-48 md:w-80 md:h-80 group cursor-pointer overflow-visible"
+              onClick={handleProfileClick}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              whileHover={{
+                scale: 1.03,
+                transition: {
+                  type: "spring",
+                  stiffness: 200,
+                  damping: 15
+                }
+              }}
+              whileTap={{
+                scale: 0.97,
+                transition: {
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 15
+                }
+              }}
+            >
+              {/* Enhanced purple gradient aura with smooth animation */}
+              <motion.div
+                className="absolute -inset-6 md:-inset-10 rounded-full bg-gradient-to-r from-purple-600/40 via-fuchsia-500/40 to-cyan-400/40 blur-xl dark:from-purple-600/60 dark:via-fuchsia-500/60 dark:to-cyan-400/60"
+                animate={{
+                  opacity: isHovering ? 0.8 : 0.6,
+                  scale: isHovering ? 1.05 : 1,
+                  rotate: isHovering ? 5 : 0
+                }}
+                transition={{
+                  duration: 0.8,
+                  ease: "easeInOut"
+                }}
+              ></motion.div>
 
-              {/* Animated border */}
-              <div className="absolute -inset-2 rounded-full border-4 border-primary/20 animate-pulse"></div>
+              {/* Animated border with enhanced pulse */}
+              <motion.div
+                className="absolute -inset-2 rounded-full border-4 border-primary/30"
+                animate={{
+                  scale: isHovering ? [1, 1.03, 1] : [1, 1.02, 1],
+                  opacity: isHovering ? [0.6, 0.8, 0.6] : [0.3, 0.5, 0.3]
+                }}
+                transition={{
+                  duration: isHovering ? 1.5 : 2.5,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "reverse"
+                }}
+              ></motion.div>
 
-              {/* Animated glow on hover */}
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-purple-600 to-cyan-400 opacity-0 group-hover:opacity-30 blur-md transition-all duration-500 dark:group-hover:opacity-40"></div>
+              {/* Enhanced glow on hover with smoother transition */}
+              <motion.div
+                className="absolute -inset-1 rounded-full bg-gradient-to-r from-purple-600 to-cyan-400 blur-md"
+                animate={{
+                  opacity: isHovering ? 0.6 : 0.2,
+                  scale: isHovering ? 1.05 : 1
+                }}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeOut"
+                }}
+              ></motion.div>
 
-              <img
-                src="/attached_assets/dp.jpg"
-                alt="Profile"
-                className="relative w-full h-full object-cover rounded-full transition-transform duration-500 group-hover:scale-105 z-10"
-                loading="eager"
+              {/* Image container with both images - enhanced transitions */}
+              <div className="relative w-full h-full rounded-full overflow-hidden">
+                {/* Primary image (dp.jpg) with smoother transition */}
+                {imageLoaded.primary && (
+                  <motion.img
+                    src="/attached_assets/dp.jpg"
+                    alt="Profile"
+                    className="absolute inset-0 w-full h-full object-cover rounded-full z-10"
+                    initial={{ opacity: 1 }}
+                    animate={{
+                      opacity: showAltImage ? 0 : 1,
+                      scale: showAltImage ? 0.92 : 1,
+                      rotate: showAltImage ? -5 : 0
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 15,
+                      duration: 0.6
+                    }}
+                  />
+                )}
+
+                {/* Secondary image (dp2.png) with smoother transition */}
+                {imageLoaded.secondary && (
+                  <motion.img
+                    src="/attached_assets/dp2.png"
+                    alt="Profile Alternative"
+                    className="absolute inset-0 w-full h-full object-cover rounded-full z-10"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: showAltImage ? 1 : 0,
+                      scale: showAltImage ? 1 : 0.92,
+                      rotate: showAltImage ? 0 : 5
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 100,
+                      damping: 15,
+                      duration: 0.6
+                    }}
+                  />
+                )}
+              </div>
+
+              {/* Enhanced flick animation overlay with smoother transition */}
+              <motion.div
+                className="absolute inset-0 bg-white/30 rounded-full z-20"
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: [0, 0.6, 0],
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 2, 0]
+                }}
+                transition={{
+                  duration: 0.8,
+                  times: [0, 0.4, 1],
+                  ease: "easeInOut"
+                }}
+                key={showAltImage ? "alt" : "primary"}
               />
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

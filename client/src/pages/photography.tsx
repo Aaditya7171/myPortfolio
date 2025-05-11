@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "wouter";
 import {
   Card,
   CardContent
@@ -23,7 +24,7 @@ import {
   CarouselNext,
   CarouselPrevious
 } from "@/components/ui/carousel";
-import { Camera, Image as ImageIcon, Sunset } from "lucide-react";
+import { Camera, Image as ImageIcon, Sunset, ArrowLeft } from "lucide-react";
 
 // Define photo categories
 const categories = {
@@ -147,6 +148,26 @@ export default function PhotographyPage() {
 
   return (
     <div className="min-h-screen pt-24 pb-16 bg-gradient-to-b from-background to-background/80 relative z-0">
+      {/* Back button */}
+      <div className="fixed top-6 left-6 z-50">
+        <Link href="/">
+          <motion.button
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-600 to-purple-800 text-white shadow-lg hover:shadow-xl"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ArrowLeft size={18} />
+            <span>Back to Home</span>
+
+            {/* Animated gradient border */}
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 to-fuchsia-500 opacity-0 hover:opacity-30 transition-opacity duration-300"></span>
+          </motion.button>
+        </Link>
+      </div>
+
       {/* Ensure any background elements don't capture clicks */}
       <div className="absolute inset-0 pointer-events-none"></div>
       {/* Hero section */}

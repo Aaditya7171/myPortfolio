@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -25,6 +25,8 @@ function Router() {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [location] = useLocation();
+  const isPhotographyPage = location === "/photography";
 
   // Simulate loading time or use for actual loading tasks
   useEffect(() => {
@@ -61,11 +63,12 @@ function App() {
       />
 
       <div className={`min-h-screen bg-background flex flex-col transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
-        <Nav />
+        {/* Only show Nav on non-photography pages */}
+        {!isPhotographyPage && <Nav />}
         <main className="flex-1">
           <Router />
         </main>
-        <Footer />
+        {!isPhotographyPage && <Footer />}
         <Toaster />
       </div>
     </QueryClientProvider>
