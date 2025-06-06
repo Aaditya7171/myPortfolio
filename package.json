@@ -7,7 +7,7 @@
     "dev": "vite",
     "start": "vite",
     "build": "vite build",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && copy CNAME dist\\public\\CNAME",
     "deploy": "gh-pages -d dist/public"
   },
   "dependencies": {
