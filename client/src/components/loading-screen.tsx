@@ -44,6 +44,30 @@ export default function LoadingScreen({ onLoadingComplete, profileImage }: Loadi
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
         >
+          {/* Welcome text above the profile picture */}
+          <motion.div
+            className="mb-8 sm:mb-10 md:mb-12 text-center"
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 15,
+              delay: 0.1
+            }}
+          >
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
+              <span className="bg-gradient-to-r from-purple-600 via-fuchsia-500 to-cyan-400 bg-clip-text text-transparent">
+                Welcome to Aditya's Portfolio
+              </span>
+            </h1>
+            <motion.div
+              className="h-1 w-0 bg-gradient-to-r from-purple-600 via-fuchsia-500 to-cyan-400 mx-auto mt-2 rounded-full"
+              animate={{ width: "80%" }}
+              transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+            />
+          </motion.div>
+
           <motion.div
             className="relative"
             initial={{ scale: 0.8, opacity: 0 }}
@@ -75,21 +99,21 @@ export default function LoadingScreen({ onLoadingComplete, profileImage }: Loadi
 
           {/* Loading text animation */}
           <motion.div
-            className="mt-20 sm:mt-24 md:mt-28 h-12 flex items-center justify-center"
+            className="mt-16 sm:mt-20 md:mt-24 h-12 flex items-center justify-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
+            transition={{ delay: 0.6, duration: 0.5 }}
           >
             <div className="flex items-center justify-center">
               {/* Render each letter with its own animation */}
               {loadingText.split('').map((letter, index) => (
                 <motion.span
                   key={`${letter}-${index}`}
-                  className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-widest bg-gradient-to-r from-purple-600 to-cyan-400 bg-clip-text text-transparent mx-0.5 sm:mx-1"
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-widest bg-gradient-to-r from-purple-600 to-cyan-400 bg-clip-text text-transparent mx-0.5 sm:mx-1"
                   initial={{ opacity: 0, y: 20, scale: 0.5 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{
-                    delay: 0.5 + (index * 0.1),
+                    delay: 0.6 + (index * 0.1),
                     duration: 0.3,
                     type: "spring",
                     stiffness: 300,
@@ -100,7 +124,7 @@ export default function LoadingScreen({ onLoadingComplete, profileImage }: Loadi
                 </motion.span>
               ))}
               <motion.span
-                className="inline-block w-1.5 sm:w-2 h-8 sm:h-10 md:h-12 ml-1 bg-gradient-to-r from-purple-600 to-cyan-400"
+                className="inline-block w-1.5 sm:w-2 h-7 sm:h-9 md:h-10 ml-1 bg-gradient-to-r from-purple-600 to-cyan-400"
                 animate={{ opacity: [0, 1, 0], height: ["60%", "100%", "60%"] }}
                 transition={{ repeat: Infinity, duration: 1 }}
               />

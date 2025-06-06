@@ -3,6 +3,21 @@ import { FileText } from "lucide-react";
 
 const certificates = [
     {
+        name: "Software Engineer Intern",
+        url: "https://drive.google.com/file/d/1kl-F2QfEez-bh8KUOD1MAvAeoMO39j5l/view?usp=sharing",
+        image: "/certificates/Software-Engineer-Intern.png"
+    },
+    {
+        name: "CSS Basic",
+        url: "https://drive.google.com/file/d/1nwjtuf4W3ulpF3qSofnwoYdOIT9DV_Hq/view?usp=sharing",
+        image: "/certificates/CSS-Basic.png"
+    },
+    {
+        name: "Javascript Intermediate",
+        url: "https://drive.google.com/file/d/1SEGCULpNg4iDBTWlIf4pcTfcU1AtTR2L/view?usp=sharing",
+        image: "/certificates/Javascript-Intermediate.png"
+    },
+    {
         name: "Flipkart Grid 6.0",
         url: "https://drive.google.com/file/d/1OiBHCDWw1zKXzFEmXAKYZZAGl3exN7xb/view?usp=sharing",
         image: "/certificates/Grid6.0.png"

@@ -71,9 +71,10 @@ export default function Contact() {
     },
     onSuccess: () => {
       toast({
-        title: "Success!",
-        description: "Your message has been sent successfully. I'll get back to you soon!",
+        title: "🎉 Thank you for reaching out!",
+        description: "Your message has been sent successfully! I'm excited to connect with you and will get back to you as soon as possible. Have a wonderful day! 😊",
         variant: "default",
+        duration: 6000, // Show for 6 seconds to give time to read the warm message
       });
       form.reset();
     },

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -218,5 +219,161 @@
 
   .light .profile-aura {
     background: radial-gradient(circle, rgba(106, 13, 173, 0.6) 0%, rgba(0, 140, 186, 0.3) 100%);
+  }
+
+  /* Mobile menu styling */
+  .mobile-menu-open {
+    @apply overflow-hidden;
+  }
+
+  /* Mobile menu button styling */
+  .mobile-menu-button {
+    @apply relative flex items-center justify-center p-2 rounded-full bg-gradient-to-r from-purple-600/40 to-purple-600/50 dark:from-purple-600/50 dark:to-purple-600/60 text-primary shadow-md;
+  }
+
+  .mobile-menu-button-open {
+    @apply bg-gradient-to-r from-purple-700/80 to-purple-800/90 dark:from-purple-700/90 dark:to-purple-800/100;
+  }
+
+  /* Mobile menu nav button styling */
+  .mobile-nav-button {
+    @apply relative w-full py-4 px-6 bg-[#121220] dark:bg-[#121220] text-white text-xl font-medium text-center rounded-md overflow-hidden;
+  }
+
+  .mobile-nav-button-aura {
+    @apply absolute -inset-1 bg-gradient-to-r from-purple-600/20 via-purple-500/20 to-purple-400/20 rounded-lg blur-sm opacity-30 group-hover:opacity-70 transition duration-300;
+  }
+
+  .mobile-nav-button-shine {
+    @apply absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-all duration-1000 ease-out;
+  }
+
+  /* Skills glow animations */
+  @keyframes skill-glow {
+    0%, 100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
+  .skill-glow {
+    animation: skill-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Enhanced emoji styling for better rendering */
+  .wave-emoji {
+    font-family: "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", "Android Emoji", "EmojiSymbols", "Twemoji Mozilla", "Segoe UI Symbol", "Noto Emoji", sans-serif !important;
+    font-feature-settings: "liga" off, "kern" off;
+    font-variant-emoji: emoji !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-synthesis: none !important;
+    unicode-bidi: isolate !important;
+    /* Force emoji display */
+    color: initial !important;
+    background: none !important;
+    /* Enhanced purple theming */
+    filter: hue-rotate(270deg) saturate(1.5) brightness(1.3) drop-shadow(0 0 8px rgba(168, 85, 247, 0.8)) drop-shadow(0 0 16px rgba(147, 51, 234, 0.6)) !important;
+    /* Prevent text selection issues */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  /* Fallback for systems that don't support emoji */
+  .wave-emoji::before {
+    content: "";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background: linear-gradient(135deg, #a855f7, #9333ea, #7c3aed);
+    border-radius: 50%;
+    margin-right: 0.1em;
+    vertical-align: middle;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Show fallback only if emoji is not rendering (appears as question mark) */
+  .wave-emoji:not(:has(👋))::before {
+    opacity: 1;
+  }
+
+  /* Enhanced waving animation keyframes */
+  @keyframes wave-animation {
+    0% { transform: rotate(0deg) scale(1); }
+    10% { transform: rotate(14deg) scale(1.05); }
+    20% { transform: rotate(-8deg) scale(1.02); }
+    30% { transform: rotate(14deg) scale(1.05); }
+    40% { transform: rotate(-4deg) scale(1.02); }
+    50% { transform: rotate(10deg) scale(1.03); }
+    60% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(0deg) scale(1); }
+  }
+
+  @keyframes enhanced-wave {
+    0% { transform: rotate(0deg) scale(1); }
+    10% { transform: rotate(14deg) scale(1.05); }
+    20% { transform: rotate(-8deg) scale(1.02); }
+    30% { transform: rotate(14deg) scale(1.05); }
+    40% { transform: rotate(-4deg) scale(1.02); }
+    50% { transform: rotate(10deg) scale(1.03); }
+    60% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(0deg) scale(1); }
+  }
+
+  /* Ensure emoji display properly */
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  }
+
+  /* Force emoji rendering */
+  .emoji-container {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Android Emoji', 'EmojiSymbols', 'Twemoji Mozilla', sans-serif !important;
+    font-variant-emoji: emoji !important;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-synthesis: none !important;
+    unicode-bidi: isolate !important;
+    /* Ensure emoji is not affected by text color inheritance */
+    color: initial !important;
+    /* Prevent text selection issues */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+
+  /* Additional fallback for emoji display issues */
+  .emoji-container::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+  }
+
+  /* Ensure proper emoji spacing */
+  .emoji-container + * {
+    margin-left: 0.1em;
   }
 }

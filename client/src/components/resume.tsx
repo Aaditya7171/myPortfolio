@@ -15,7 +15,7 @@ export default function Resume() {
 
     try {
       console.log('Fetching PDF');
-      const response = await fetch('/attached_assets/Resume-91.pdf');
+      const response = await fetch('/attached_assets/Resume-73.pdf');
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
